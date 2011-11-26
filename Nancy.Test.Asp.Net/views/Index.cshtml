@@ -5,20 +5,16 @@
 {
     <link href="css/page.css" rel="stylesheet" type="text/css" />
 }
+@section title
+{
+    My Title
+}
 
-<div id="tabs">
-    <ul>
-        <li><a href="#tabs-1">@Model.Message </a></li>
-    </ul>
-    
-    <div id="tabs-1">
         <form id="form" method="post" action="go">
-            Name : <input type="text" name="name" />
+            @Model.Message : <input type="text" name="name" />
             <input type="submit" value="Go!" />
         </form>
-    </div>
-
-</div>
+    
 <div id="popup" style="display:none">
 </div>
 
@@ -26,7 +22,7 @@
 {
 <script type="text/javascript">
     $(document).ready(function () {
-        $("#tabs").tabs();
+       
         $("#form").ajaxForm({
             success: function (response) {
                 $("#popup").text(response).dialog({

@@ -6,7 +6,7 @@ using Nancy;
 using Nancy.Test.Asp.Net.Services;
 namespace Nancy.Test.Asp.Net.Modules
 {
-    public class MyModule : NancyModule
+    public class MyModule : BaseModule
     {
         private readonly IService service;
 
@@ -14,23 +14,6 @@ namespace Nancy.Test.Asp.Net.Modules
         {
             this.service = service;
             
-            this.Get[@"/js/{name}"] = x =>
-            {
-                return Response.AsJs(string.Format("js/{0}", (string)x.name));
-            };
-
-            this.Get[@"/css/{name}"] = x =>
-            {
-                return Response.AsCss(string.Format("css/{0}", (string)x.name));
-            };
-
-            this.Get[@"/img/{name}"] = x =>
-            {
-                return Response.AsImage(string.Format("img/{0}", (string)x.name));
-            };
-
-            this.Get["/"] = this.Index;
-
             this.Get["/test/{name}"] = this.Test;
 
             this.Post["/go"] = this.Go;
@@ -42,7 +25,7 @@ namespace Nancy.Test.Asp.Net.Modules
             return this.Response.AsJson<String>(message);
         }
 
-        public Response Index(dynamic x)
+        public override Response Index(dynamic x)
         {
             return View["Index.cshtml", new { Message = "Who are you?" }];
         }

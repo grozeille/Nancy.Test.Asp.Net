@@ -73,6 +73,7 @@
     <Reference Include="System.Web.ApplicationServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\master.css" />
     <Content Include="css\custom-theme\images\ui-bg_diagonals-thick_20_f29418_40x40.png" />
     <Content Include="css\custom-theme\images\ui-bg_flat_65_ffffff_40x100.png" />
     <Content Include="css\custom-theme\images\ui-bg_glass_40_212121_1x400.png" />
@@ -109,11 +110,14 @@
     <Content Include="js\jquery-1.6.2.min.js" />
     <Content Include="js\jquery-ui-1.8.16.custom.min.js" />
     <Content Include="js\jquery.form.js" />
+    <Content Include="js\modernizr-1.7.js" />
+    <Content Include="js\modernizr-1.7.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application\MyApplicationBootstrapper.cs" />
     <Compile Include="Application\MyApplicationModule.cs" />
+    <Compile Include="Modules\BaseModule.cs" />
     <Compile Include="Modules\IndexModule.cs" />
     <Compile Include="Modules\MyModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -159,6 +163,6 @@
   </Target>
   -->
   <Target Name="BeforeBuild">
-<Exec Command="&quot;$(SolutionDir)tools\NuGet&quot; install &quot;$(ProjectDir)packages.config&quot; -o &quot;$(SolutionDir)packages&quot;" />
-</Target>
+    <Exec Command="&quot;$(SolutionDir)tools\NuGet&quot; install &quot;$(ProjectDir)packages.config&quot; -o &quot;$(SolutionDir)packages&quot;" />
+  </Target>
 </Project>

@@ -10,7 +10,7 @@ namespace Nancy.Test.Asp.Net.Modules
     {
         public IndexModule()
         {
-            this.Get["/"] = x => this.Response.AsRedirect("/mymodule/");
+            this.Get["/"] = x => this.Response.AsRedirect("~/mymodule/");
         }
     }
 }
